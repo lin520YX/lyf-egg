@@ -1,1 +1,1 @@
-- npm install egg-init -g
+- npm install egg-init -g 
