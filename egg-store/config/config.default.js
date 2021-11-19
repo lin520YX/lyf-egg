@@ -27,6 +27,7 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];
 
+  config.api = 'http://www.phonegap100.com/appapi.php?'
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
