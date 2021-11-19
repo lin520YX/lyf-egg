@@ -11,7 +11,16 @@ module.exports = appInfo => {
    * @type {Egg.EggAppConfig}
    **/
   const config = exports = {};
-
+  config.security = {
+     csrf : {
+      enable: false,
+    }
+ }
+  config.view={
+    mapping:{
+      '.html':'ejs'
+    }
+  }
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1637165108173_412';
 
