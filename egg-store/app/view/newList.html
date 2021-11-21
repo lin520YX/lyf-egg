@@ -8,7 +8,7 @@
 <body>
   
   <%list.forEach(item=>{%>
-    <li><a href="/newscontent?aid=<%=item.aid%>"><%=item.title%></a>   <span>---<%=item.dateline%></span></span></li>
+    <li><a href="/newscontent?aid=<%=item.aid%>"><%=item.title%></a>   <span>---<%=helper.formatTime(item.dateline)%></span></span></li>
     <%})%>
 </body>
 </html>
