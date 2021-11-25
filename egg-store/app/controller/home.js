@@ -20,6 +20,7 @@ class HomeController extends Controller {
     console.log(ctx)
     ctx.body = 1;
   }
+
 }
 
 module.exports = HomeController;
