@@ -12,8 +12,7 @@ module.exports = app => {
       });
     }
     async add() {        
-
-      console.log(this.ctx.request.body);
+      console.log(this.ctx.request.body); ///{ username: '1212', password: '212' }
   }
   }
   return Controller
