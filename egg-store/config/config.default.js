@@ -28,7 +28,7 @@ module.exports = appInfo => {
   config.middleware = [];
 
   config.api = 'http://www.phonegap100.com/appapi.php?'
-  config.middleware = ['forbidip']
+  config.middleware = ['forbidip','auth']
   config.forbidip={
     ip:['127.0.0.1']
   }
