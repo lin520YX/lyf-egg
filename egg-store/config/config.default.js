@@ -32,6 +32,10 @@ module.exports = appInfo => {
   config.forbidip={
     ip:['127.0.0.1']
   }
+  config.session = {
+    key:'SESSION_ID',
+    // maxAge:2000000
+  }
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
