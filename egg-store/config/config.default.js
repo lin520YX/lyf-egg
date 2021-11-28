@@ -35,6 +35,7 @@ module.exports = appInfo => {
   config.session = {
     key:'SESSION_ID',
     // maxAge:2000000
+    renew:true //renew为true 每次刷新session 都会被延期
   }
   // add your user config here
   const userConfig = {
