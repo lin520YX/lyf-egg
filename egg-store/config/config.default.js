@@ -11,6 +11,11 @@ module.exports = appInfo => {
    * @type {Egg.EggAppConfig}
    **/
   const config = exports = {};
+//   config.security = {
+//      csrf : {
+//       enable: false,
+//     }
+//  }
   config.view={
     mapping:{
       '.html':'ejs'

@@ -1,7 +1,7 @@
 'use strict';
 
-var svgCaptcha = require('svg-captcha'); //引入验证
-
+const svgCaptcha = require('svg-captcha'); //引入验证
+const md5 = require('md5');
 const Service = require('egg').Service;
 
 class ToolsService extends Service {
@@ -20,6 +20,9 @@ class ToolsService extends Service {
     this.ctx.session.code = captcha.text;   /*验证码上面的信息*/
 
     return captcha;
+  }
+  async md5(str){
+    return md5(str)
   }
 }
 
