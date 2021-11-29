@@ -7,6 +7,9 @@ module.exports = app => {
   const { router, controller } = app;
 
   router.get('/', controller.home.index);
+  //验证码
+  router.get('/admin/verify', controller.admin.base.verify);
+  
   router.get('/admin/login', controller.admin.login.index);
   router.get('/admin/manager',controller.admin.manager.index)
   router.get('/admin/manager/add',controller.admin.manager.add)
