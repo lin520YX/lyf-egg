@@ -1,13 +1,13 @@
 module.exports = app => {
   class Controller extends app.Controller {
     async index(){
-      await this.ctx.render('admin/manager/index')
+      await this.ctx.render('admin/manager/index');
     }
     async add(){
-      this.ctx.body = '增加管理员'
+      await this.ctx.render('admin/manager/add');
     }
     async edit(){
-      this.ctx.body = '编辑管理员'
+      await this.ctx.render('admin/manager/edit');
     }
   }
   return Controller

@@ -1,7 +1,7 @@
 
 @CHARSET "UTF-8";
 body {
-	background:#666666;
+	background:rgba(180, 180, 180, .5);
 }
 #login {
 	width:500px;
@@ -9,6 +9,7 @@ body {
 	/*background:#EDEFFC;*/
 	background: #fff;
 	margin:120px auto 0 auto;
+	padding: 10px;
 	border-radius: 5px;
 	box-shadow:black 0px 0px 10px;
 }
