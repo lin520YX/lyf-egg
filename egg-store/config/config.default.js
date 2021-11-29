@@ -11,11 +11,6 @@ module.exports = appInfo => {
    * @type {Egg.EggAppConfig}
    **/
   const config = exports = {};
-  config.security = {
-     csrf : {
-      enable: false,
-    }
- }
   config.view={
     mapping:{
       '.html':'ejs'
@@ -28,7 +23,7 @@ module.exports = appInfo => {
   config.middleware = [];
 
   config.api = 'http://www.phonegap100.com/appapi.php?'
-  config.middleware = ['forbidip','auth']
+  config.middleware = ['adminauth']
   config.forbidip={
     ip:['127.0.0.1']
   }
@@ -42,6 +37,13 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+  };
+  //配置mongose连接mongodb数据库
+  exports.mongoose = {
+    client: {
+      url: 'mongodb://127.0.0.1:27018/testdb',
+      options: {}
+    },
   };
 
   return {
