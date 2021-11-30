@@ -9,8 +9,6 @@ module.exports = app => {
     }
     async doLogin(){
       const {username,password,code} = this.ctx.request.body
-      console.log(username,password,code)
-      console.log(this.ctx.session.code)
       let md5password = await this.service.tools.md5(password)
       if(code&&code.toLowerCase()===this.ctx.session.code.toLowerCase()){
         // if(username == '00204'){
@@ -36,6 +34,10 @@ module.exports = app => {
         await this.error('/admin/login','验证码错误');
       }
 
+    }
+    async loginOut() {
+      this.ctx.session.userinfo=null;
+      this.ctx.redirect('/admin/login');
     }
   }
   return Controller

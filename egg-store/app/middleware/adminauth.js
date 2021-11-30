@@ -7,6 +7,7 @@ module.exports = options => {
         // console.log(pathname)
 
         if(ctx.session.userinfo){ 
+            ctx.state.userinfo=ctx.session.userinfo;
             await next();
         }else{
             if(pathname=='/admin/login' || pathname=='/admin/doLogin' || pathname=='/admin/verify'){
