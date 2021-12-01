@@ -37,7 +37,6 @@ module.exports = app => {
       await this.ctx.model.Role.updateOne({_id},{title,description})
       await this.success('/admin/role','修改角色成功'); 
 
-
     }
     async del(){
       this.ctx.body = '删除角色'
