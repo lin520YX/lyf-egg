@@ -21,6 +21,11 @@ class BaseController extends Controller {
 
     this.ctx.body=captcha.data;      /*给页面返回一张图片*/
   }
+  async delete(){
+    let {id,model} = this.ctx.request.query
+    await this.ctx.model[model].deleteOne({'_id':id})
+    this.ctx.redirect(this.ctx.state.prevPage)
+  }
 }
 
 module.exports = BaseController;
