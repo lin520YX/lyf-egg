@@ -8,7 +8,7 @@ module.exports=(app)=>{
     email:{type:String},
     status:{type:Number,default:1},
     role_id:{type:Schema.Types.ObjectId},
-    is_super: { type:Number}  
+    is_super: { type:Number,default:0}  
   },
   {
     timestamps:{

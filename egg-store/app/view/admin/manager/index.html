@@ -48,12 +48,12 @@
                         <td><%=list[i].username%></td>
                         <td><%=list[i].mobile%></td>
                         <td><%=list[i].email%></td>
-                        
+
                         <%if(list[i].role.length>0){%>
                             <td><%=list[i].role[0].title%></td>
+                        <%}else{%>
+                            <td></td>
                         <%}%>
-                        
-                      
                         <td class="text-center">修改  删除</td>
                     </tr>	
                                      
