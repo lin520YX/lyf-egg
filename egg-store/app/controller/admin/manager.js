@@ -47,6 +47,24 @@ module.exports = app => {
 
       }
     }
+    async doEdit(){
+      let {id:_id,password,mobile,email,role_id} = this.ctx.request.body
+      if(password){
+        password = await this.ctx.service.md5(password)
+        await this.ctx.model.Admin.updateOne({_id},{
+          password,mobile,email,role_id
+        })
+      }else{
+        
+        //不修改密码
+        await this.ctx.model.Admin.updateOne({_id},{
+          mobile,
+          email,
+          role_id
+        })
+      }
+      await this.success('/admin/manager','修改用户信息成功')
+    }
     async edit(){
       let {id:_id} = this.ctx.query
       let result = await this.ctx.model.Admin.findOne({_id})
