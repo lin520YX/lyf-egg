@@ -48,7 +48,12 @@ module.exports = app => {
       }
     }
     async edit(){
-      await this.ctx.render('admin/manager/edit');
+      let {id:_id} = this.ctx.query
+      let result = await this.ctx.model.Admin.findOne({_id})
+      let roleResult = await this.ctx.model.Role.find({})
+      // 获取的编辑的数据
+
+      await this.ctx.render('admin/manager/edit',{result,roleResult});
     }
   }
   return Controller
