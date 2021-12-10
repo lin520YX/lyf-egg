@@ -17,7 +17,7 @@ module.exports = app => {
         //   return 
         // }
         let result = await this.ctx.model.Admin.find({username,password:md5password})
-        console.log(result)
+        console.log('result',result)
         if(result.length>0){
             //登录成功
 
