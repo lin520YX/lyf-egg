@@ -40,7 +40,25 @@ module.exports = (app) => {
             await this.success('/admin/access', '增加权限成功')
         }
         async edit() {
-            await this.ctx.render('admin/access/edit')
+            let {id:_id} = this.ctx.request.query
+            let list = await this.ctx.model.Access.findOne({_id})
+            let moduleList =  await this.ctx.model.Access.find({module_id:'0'})
+            console.log(list,
+                moduleList)
+            await this.ctx.render('admin/access/edit',{
+                list,
+                moduleList
+            })
+        }
+        async doEdit(){
+            let result = this.ctx.request.body
+            let {id:_id,module_id}= result
+            // 类型转换
+            if(module_id!=0){
+                result.module_id = this.app.mongoose.Types.ObjectId(module_id)
+            }
+            await this.ctx.model.Access.updateOne({_id},{...result})
+            await this.success('/admin/access', '修改权限成功')
         }
     }
     return Controller

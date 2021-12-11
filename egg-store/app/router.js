@@ -37,7 +37,9 @@ module.exports = app => {
   router.get('/admin/access/add',controller.admin.access.add)
   router.get('/admin/access/edit',controller.admin.access.edit)
   router.post('/admin/access/doAdd',controller.admin.access.doAdd)
+  router.post('/admin/access/doEdit',controller.admin.access.doEdit)
 
+  
   // router.get('/user/:id', controller.home.user);
   // router.get('/spider', controller.spider.index);
   // router.get('/newscontent', controller.spider.newscontent);
