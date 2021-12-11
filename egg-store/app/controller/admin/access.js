@@ -27,7 +27,10 @@ module.exports = (app) => {
         async doAdd() {
             let addResult = this.ctx.request.body
             let module_id = addResult.module_id
-
+            if(module_id==0&&addResult.type!=1){
+                this.error('/admin/access','顶级模块类型只能为模块');
+                return
+            }
             //菜单  或者操作
             // 保证菜单操作的id和模块的是一个类型
             if (module_id != 0) {
