@@ -38,8 +38,34 @@ module.exports = app => {
       await this.success('/admin/role','修改角色成功'); 
 
     }
-    async del(){
-      this.ctx.body = '删除角色'
+    async auth(){
+      const {id:_id}= this.ctx.request.query
+      let list =  await this.ctx.model.Access.aggregate([{
+        $lookup:{
+          from:'access',
+          localField:'_id',
+          foreignField:'module_id',
+          as:'items'
+        }
+      },{
+        $match:{module_id:'0'}
+      }])
+      await this.ctx.render('admin/role/auth',{
+        role_id:_id,
+        list
+      });
+    }
+    async doAuth(){
+      const {role_id,access_node} = this.ctx.request.body
+      // 删除他下面所有的权限
+      await this.ctx.model.RoleAccess.deleteMany({role_id})
+      for(let i = 0;i<access_node.length;i++){
+        this.ctx.model.RoleAccess.create({
+          role_id,
+          access_node:access_node[i]
+        })
+      }
+      await this.success('/admin/role/auth?id='+role_id,"授权成功");
     }
   }
   return Controller
