@@ -13,6 +13,7 @@ module.exports = options => {
             if(!hasAuth){
                 ctx.body = '无权限'
             }else{
+                ctx.state.asideList=await ctx.service.admin.getAuthList(ctx.session.userinfo.role_id);
                 await next();
             }
             
