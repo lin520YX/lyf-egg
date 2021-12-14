@@ -3,13 +3,10 @@ module.exports = (app) => {
     class Service extends app.Service {
         async checkAuth() {
             const userInfo = this.ctx.session.userinfo
-            console.log('userInfo',userInfo)
             const role_id = userInfo.role_id
             // 当前用户的访问地址
             const { pathname } = url.parse(this.ctx.request.url)
             const ignoreUrls = ['/admin/login','/admin/doLogin','/admin/verify','/admin/loginOut']
-            console.log(pathname)
-            console.log(ignoreUrls.includes(pathname))
             if (userInfo.is_super == 1 || !ignoreUrls.includes(pathname)) {
                 return true
             }
@@ -30,7 +27,6 @@ module.exports = (app) => {
             return false
         }
         async getAuthList(role_id){
-            console.log('1111111')
             // 查询所有权限列表
             let allAuthList = await this.ctx.model.Access.aggregate([{
                 $lookup:{
@@ -62,7 +58,6 @@ module.exports = (app) => {
                     })
                 }
             })
-            console.log(JSON.stringify(allAuthList))
             return allAuthList
         }
     }
