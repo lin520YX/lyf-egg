@@ -47,4 +47,14 @@ module.exports = app => {
   // router.get('/newscontent', controller.spider.newscontent);
   // router.get('/post',controller.post.index)
   // router.post('/add',controller.post.add)
+
+    //上传图片演示
+
+    router.get('/admin/focus', controller.admin.focus.index);
+
+    router.get('/admin/focus/multi', controller.admin.focus.multi);
+  
+    router.post('/admin/focus/doSingleUpload', controller.admin.focus.doSingleUpload);  
+  
+    router.post('/admin/focus/doMultiUpload', controller.admin.focus.doMultiUpload); 
 };
