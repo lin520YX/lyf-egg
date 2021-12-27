@@ -7,6 +7,7 @@ const fs=require('fs');
       await this.ctx.render('/admin/focus/index')
     }
     async multi(){
+      // 多文件上传
       await this.ctx.render('/admin/focus/multi')
     }
     async doSingleUpload(){
