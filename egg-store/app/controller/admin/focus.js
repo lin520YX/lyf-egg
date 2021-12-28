@@ -25,7 +25,28 @@ const fs=require('fs');
         fields: stream.fields      //表单的其他数据
       }  
     }
-    async doMultiUpload(){}
+    async doMultiUpload(){
+      // autoFields 可以将出了
+      let files = []
+      const parts =  this.ctx.multipart({autoFields:true})
+      console.log(parts)
+      let stream = ''
+      while((stream = await parts())!=null){
+        if(!stream.filename)return 
+        const filename = stream.filename.toLowerCase()
+        const fieldname = stream.fieldname
+        const target = 'app/public/admin/upload'+path.basename(filename);
+        const writeStream = fs.createWriteStream(target)
+        await pump(stream,writeStream)
+        files.push({
+          [fieldname]:target
+        })
+      }
+      this.ctx.body = {
+        files:files,
+        fields:parts.field
+      }
+    }
   }
   return Controller
 }

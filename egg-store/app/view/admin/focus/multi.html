@@ -15,14 +15,13 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
-                        <form action="/admin/role/doAdd" method="post">
+                        <form action="/admin/focus/doMultiUpload?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
                             <ul>
 
-                                <input type="hidden" name="_csrf" value="<%=csrf%>">
                                 <li>  图片名称: <input type="text" name="title"/></li>
 
-                               
-
+                                <li>  图片1: <input type="file" name="pic1"/></li>
+                                <li>  图片2: <input type="file" name="pic2"/></li>
                                 <li>
                                     图片描述:
                                     <textarea name="description" id="" cols="60" rows="8"></textarea>
