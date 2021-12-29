@@ -50,6 +50,12 @@ module.exports = appInfo => {
       options: {}
     },
   };
+  // https://www.npmjs.com/package/egg-multipart
+  exports.multipart={
+    whitelist: [
+      '.png',
+    ],
+  }
 
   return {
     ...config,

@@ -35,7 +35,7 @@ const fs=require('fs');
         if(!stream.filename)return 
         const filename = stream.filename.toLowerCase()
         const fieldname = stream.fieldname
-        const target = 'app/public/admin/upload'+path.basename(filename);
+        const target = 'app/public/admin/upload/'+path.basename(filename);
         const writeStream = fs.createWriteStream(target)
         await pump(stream,writeStream)
         files.push({
