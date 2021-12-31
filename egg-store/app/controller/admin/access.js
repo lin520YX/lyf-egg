@@ -20,6 +20,7 @@ module.exports = (app) => {
         }
         async add() {
             var result = await this.ctx.model.Access.find({ module_id: '0' })
+            console.log(result)
             await this.ctx.render('admin/access/add', {
                 moduleList: result,
             })

@@ -16,6 +16,7 @@ module.exports = appInfo => {
 //       enable: false,
 //     }
 //  }
+  config.uploadDir='app/public/admin/upload';   
   config.view={
     mapping:{
       '.html':'ejs'
