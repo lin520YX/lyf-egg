@@ -12,6 +12,8 @@ module.exports = (app) => {
     // 删除
     router.get('/admin/delete', controller.admin.base.delete)
     router.get('/admin/changeStatus', controller.admin.base.changeStatus)
+    router.get('/admin/editNum', controller.admin.base.editNum)
+
 
     router.get('/admin/login', controller.admin.login.index)
     router.post('/admin/doLogin', controller.admin.login.doLogin)

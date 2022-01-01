@@ -49,6 +49,14 @@ var app={
 		// 给span赋值
 		$(input).blur(function(){
 			$(el).html($(this).val())
+			$.ajax({
+				url: '/admin/editNum',
+				data: {model:model,attr:attr,id:id,num:$(this).val()},
+				success: (e)=>{
+					if(e.success){
+						alert('排序修改成功')
+					}
+				}});
 		})
 	}
 }

@@ -60,7 +60,9 @@ table .th{
 	
 	background: #EEEEEE;
 }
-
+table .text-center span{
+    display: block;
+}
  .input-form li{
     margin: 5px 0px;
 }
