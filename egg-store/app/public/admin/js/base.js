@@ -8,7 +8,13 @@ var app={
 
 	init:function(){
 		this.toggleAside();
-
+		this.deleteConfirm()
+	},
+	deleteConfirm:function(){
+		$('.delete').click(()=>{
+			let flag = window.confirm('您确定要删除吗')
+			return flag
+		})
 	},
 	toggleAside:function(){
 			$('.aside h4').click(function(){
@@ -30,6 +36,20 @@ var app={
 	
 				}
 			}});
+	},
+	editNum:function(el,model,attr,id){
+		const val = $(el).html();
+		const input = $("<input value='' />")
+		$(el).html(input)
+		$(input).trigger('focus').val(val)
+		// 阻止冒泡
+		$(input).click(()=>{
+			return false
+		})
+		// 给span赋值
+		$(input).blur(function(){
+			$(el).html($(this).val())
+		})
 	}
 }
 

@@ -55,6 +55,7 @@ module.exports = appInfo => {
   exports.multipart={
     whitelist: [
       '.png',
+      '.jpg'
     ],
   }
 

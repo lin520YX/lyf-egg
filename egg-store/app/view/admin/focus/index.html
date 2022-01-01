@@ -25,7 +25,8 @@
                                 <th>分类</th>
                                 <th>图片</th>
                                 <th>跳转地址</th>                                             
-                                <th class="text-center">状态</th>                                             
+                                <th class="text-center">状态</th>
+                                <th class="text-center">排序</th>                                                
                             
                                 <th class="text-center">操作</th>
                             </tr>
@@ -65,7 +66,10 @@
                                                             <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Focus','status','<%=list[i]._id%>')" />
                                                     <%}%>
 
-                                                </td>                                                                    
+                                                </td> 
+                                                <td>
+                                                    <span onclick="app.editNum(this,'Focus','sort','<%=list[i]._id%>')" ><%=list[i].sort%></span>
+                                                </td>                                                               
                                                 <td class="text-center">　<a href="/admin/focus/edit?id=<%=list[i]._id%>">修改</a>　<a class="delete" href="/admin/delete?model=Focus&id=<%=list[i]._id%>">删除</a></td>
                                             </tr>
                                 
