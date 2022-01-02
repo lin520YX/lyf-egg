@@ -32,7 +32,7 @@
                         <tr>
                             <td><%=list[i].title%></td>
                             <td><%=list[i].description%></td>
-                            <td><%=list[i].createdAt%></td>
+                            <td><%=helper._formatTime(list[i].createdAt)%></td>
                             <td class="text-center">
 
                                 <%if(list[i].status==1){%>

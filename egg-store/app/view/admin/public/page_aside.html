@@ -2,7 +2,7 @@
     <%for(var i =0;i<asideList.length;i++){%>
         <li>
             <%if((asideList[i].checked&&asideList[i].type==1)||(userinfo.is_super==1&& asideList[i].type==1)){%>
-                <h4><%=asideList[i].module_name%></h4>
+                <h4><%=asideList[i].module_name%>  <span class="nav_open"></span></h4>
                 <ul>
                     <%for(var j=0;j<asideList[i].items.length;j++){%>
                         <%if((asideList[i].items[j].type!=3&&asideList[i].items[j].checked)||(asideList[i].items[j].type!=3&&userinfo.is_super==1)){%>
@@ -13,7 +13,4 @@
             <%}%>
         </li>
     <%}%>
-  
-
-  
 </ul>
