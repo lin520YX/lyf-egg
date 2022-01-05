@@ -8,13 +8,18 @@ var app={
 
 	init:function(){
 		this.toggleAside();
-		this.deleteConfirm()
+		this.deleteConfirm();
+		this.resizeIframe()
 	},
 	deleteConfirm:function(){
 		$('.delete').click(()=>{
 			let flag = window.confirm('您确定要删除吗')
 			return flag
 		})
+	},
+	resizeIframe(){
+		const height = document.documentElement.clientHeight -100
+		document.getElementById('rightMain').height = height
 	},
 	toggleAside:function(){
 			$('.aside h4').click(function(){
@@ -65,4 +70,7 @@ var app={
 		})
 	}
 }
+$(window).resize(function(){
+	app.resizeIframe()
+})
 
