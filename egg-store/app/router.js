@@ -72,4 +72,7 @@ module.exports = (app) => {
     router.get('/admin/focus/add',controller.admin.focus.add)
     router.get('/admin/focus/edit',controller.admin.focus.edit)
     router.post('/admin/focus/doEdit',controller.admin.focus.doEdit)
+
+
+    router.get('/admin/goodsType',controller.admin.goodsType.index)
 }
