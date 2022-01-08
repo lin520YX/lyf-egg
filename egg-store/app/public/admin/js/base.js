@@ -9,7 +9,7 @@ var app={
 	init:function(){
 		this.toggleAside();
 		this.deleteConfirm();
-		this.resizeIframe()
+		// this.resizeIframe()
 	},
 	deleteConfirm:function(){
 		$('.delete').click(()=>{
@@ -70,7 +70,5 @@ var app={
 		})
 	}
 }
-$(window).resize(function(){
-	app.resizeIframe()
-})
+
 

@@ -13,7 +13,7 @@ module.exports = {
 
       //格式化日期  param（时间戳）
 
-      return sd.format(new Date(param*1000), 'YYYY-MM-DD HH:mm');
+      return sd.format(new Date(param), 'YYYY-MM-DD HH:mm');
 
 
     },
